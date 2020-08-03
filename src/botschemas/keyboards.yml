@@ -1,0 +1,6 @@
+controlAnswers:
+  buttons:
+    - - wr.btn.a1
+      - wr.btn.a2
+    - - wr.btn.a3
+      - wr.btn.a4

@@ -1,4 +1,5 @@
 const {MVLoader} = require('mvloader');
+const BotHandler = require('mvl-botcms-handler');
 // const DBHandler = require('mvl-db-handler');
 // const ExampleSemis = require('./mvlblanksemis');
 
@@ -10,16 +11,18 @@ const {MVLoader} = require('mvloader');
  * @property {MVTools} MT
  */
 
-class MVLBlankProject extends MVLoader {
+class WelcomeRestricter extends MVLoader {
     constructor(config) {
         let localConfig = {
             ext: {
                 classes: {
                     controllers: {
+                        wrProcess: require('./controllers/wrprocess'),
                         // MVLBlankController: require('./controllers/mvlblankcontroller'),
                     },
                     handlers: {
                         // DBHandler: DBHandler,
+                        BotHandler,
                         // MVLBlankHandler: require('./handlers/mvlblankhandler'),
                     },
                     semis: {
@@ -51,4 +54,4 @@ class MVLBlankProject extends MVLoader {
 
 }
 
-module.exports = MVLBlankProject;
+module.exports = WelcomeRestricter;

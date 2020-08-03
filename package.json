@@ -1,14 +1,16 @@
 {
-  "name": "mvl-blank-project",
+  "name": "welcome-resctricter-bot",
   "version": "0.0.1",
   "description": "",
-  "main": "src/mvlblankproject.js",
+  "main": "index.js",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1"
   },
   "dependencies": {
+    "botcms": "^1.1.0-alpha.1",
     "mvloader": "^1.0.3",
-    "mvtools": "^1.0.7"
+    "mvtools": "^1.0.7",
+    "mvl-botcms-handler": "^1.0.0"
   },
   "devDependencies": {},
   "author": "mvoevodskiy",

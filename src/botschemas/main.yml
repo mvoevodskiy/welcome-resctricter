@@ -1,0 +1,3 @@
+scripts: $FILE ./scripts.yml
+lexicons: $FILE ./lexicons.yml
+keyboards: $FILE ./keyboards.yml

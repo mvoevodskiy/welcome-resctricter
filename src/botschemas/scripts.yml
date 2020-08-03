@@ -1,0 +1,53 @@
+c:
+  welcome:
+    trigger: wrProcess.newMember_trg
+    command: true
+    action: wrProcess.newMember_act
+  left:
+    trigger: wrProcess.leftMember_trg
+    command: true
+    action: wrProcess.leftMember_act
+
+  startPM:
+    trigger:
+      - /start
+      - wrProcess.isPrivate_trg
+    command: true
+    message: wr.msg.welcome.private
+    goto: ((children)).q1
+    c:
+      q1:
+        message: wr.msg.questions.q1
+        store:
+          clear: true
+        validate: ((parent)).q2
+      q2:
+        message: wr.msg.questions.q2
+        store: true
+        validate: ((parent)).q3
+      q3:
+        message: wr.msg.questions.q3
+        keyboard: controlAnswers
+        store: true
+        validate:
+          failure: ((parent)).failure
+          switch:
+            "wr.btn.a3": ((parent)).success
+      failure:
+        message: wr.msg.questions.wrongAnswer
+        keyboard:
+          clear: true
+      success:
+        action: wrProcess.allowChatMember
+        goto: ((parent)).successMessage
+      successMessage:
+        message: wr.msg.questions.successAnswer
+        action:
+          type: send
+          options:
+            from_scope: startPM
+            message: wr.msg.questions.sentFromMember
+            target:
+              tg: 415542995
+        keyboard:
+          clear: true
